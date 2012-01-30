@@ -6,7 +6,8 @@ group :development do
 end
 
 group :test do
-  gem "newsly"
+  gem "rails", "3.2.1"
+  gem "newsly", :path => '../../'
   gem "letter_opener"
   gem "spork"
   gem "sqlite3"
