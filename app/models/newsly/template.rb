@@ -2,7 +2,7 @@
 
 module Newsly
   class Template < Newsly::LiquidModel
-    set_table_name 'newsly_templates'
+    self.table_name = 'newsly_templates'
     liquid_methods :subject, :body
 
     validates_presence_of :subject

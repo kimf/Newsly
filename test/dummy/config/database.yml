@@ -5,5 +5,5 @@ development:
 # config/database.yml in Rails
 test:
   adapter: sqlite3
-  database: ":memory:"
+  database: "baraspara_test.db"
   timeout: 500

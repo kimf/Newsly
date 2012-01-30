@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    newsly (0.5.0)
+    newsly (0.5.2)
       jquery-rails
       liquid
-      rails (~> 3.1.0)
+      rails (>= 3.1.0)
       resque
       resque-async_deliver
 

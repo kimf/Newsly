@@ -1,5 +1,6 @@
 module Newsly
 	class LiquidModel < ActiveRecord::Base
+    self.abstract_class = true
 
 		validates_presence_of :body
 		#

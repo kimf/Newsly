@@ -1,7 +1,7 @@
 # encoding: UTF-8
 module Newsly
   class Newsletter < Newsly::LiquidModel
-    set_table_name 'newsly_newsletters'
+    self.table_name = 'newsly_newsletters'
   	liquid_methods :title, :body
 
     validates_presence_of :title
