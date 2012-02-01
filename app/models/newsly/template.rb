@@ -8,7 +8,7 @@ module Newsly
     validates_presence_of :subject
     #validates_presence_of :parent_id, :if => :original
     #validates original is never draft and
-
+    validate :body_must_follow_validation_rules
     
     ### Methods
 
@@ -22,6 +22,14 @@ module Newsly
       original.save
       original
     end
-    
-  end
+
+    def body_must_follow_validation_rules
+      failed = []
+      validation_rules.split(',').each do |rule|
+        rule = rule.strip
+        failed.push(rule) unless body=~ /{{rule}}/
+      end
+      errors.add(:body, "#{failed.to_sentence} is required") if failed.length > 0
+    end
+  end  
 end

@@ -17,4 +17,11 @@ describe Newsly::Template do
     @parent.body.should == "Hello {{name}} is {{email}} wrong or not åäö?"
     @parent.render("name" => "Kim", "email" => "kim@email.com").should == "Hello Kim is kim@email.com wrong or not åäö?"
   end
+
+  it "validates a templates body content after the templates validation_rules" do
+    @template = Newsly::Template.new({:name => "template", :body => "Hello", :subject => "Template", :draft => false})
+    @template.validation_rules = "email, confirmation_link"
+    @template.save
+    @template.errors.messages[:body].first.should == "email and confirmation_link is required"
+  end
 end
