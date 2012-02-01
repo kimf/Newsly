@@ -21,7 +21,7 @@
 			    <td class="title">
 			    	<%= link_to template.friendly_name || template.name, template, :class => "friendly_name" %>
 			    	<span class="type"><%=t(template.template_type)%></span>
-			    	<span class="desc">Lorem ipsum dolor sit amet conseqteur dolor amet.</span>
+			    	<span class="desc"><%=t(template.description)%></span>
 			    </td>
 			  </tr>
 			<% end %>
