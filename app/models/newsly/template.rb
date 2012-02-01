@@ -25,11 +25,13 @@ module Newsly
 
     def body_must_follow_validation_rules
       failed = []
-      validation_rules.split(',').each do |rule|
-        rule = rule.strip
-        failed.push(rule) unless body=~ /{{rule}}/
+      unless validation_rules.blank?
+        validation_rules.split(',').each do |rule|
+          rule = rule.strip
+          failed.push(rule) unless body=~ /{{rule}}/
+        end
+        errors.add(:body, "#{failed.to_sentence} is required") if failed.length > 0
       end
-      errors.add(:body, "#{failed.to_sentence} is required") if failed.length > 0
     end
   end  
 end
